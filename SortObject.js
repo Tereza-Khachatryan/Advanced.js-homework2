@@ -1,17 +1,20 @@
-let arr = ([
+let arr = [
     { name: "Alice", age: 25 },
     { name: "Bob", age: 30 },
-    { name: "Charlie", age: 20 },
-    ],
-    "age"
-    );
+    { name: "Charlie", age: 20 }
+];
 
-    function sort(arr){
-        for(let i = 0; i< arr.length; i++){
-            let newArr = []
-            newArr.push(arr[i])
+function sort(arr, i, ascending ) {
+    arr.sort((a, b) => {
+        if (a[i] > b[i]) {
+            return ascending ? 1 : -1;
         }
-        return newArr
-    }
-    
-    alert(sort(arr))
+        if (a[i] < b[i]) {
+            return ascending ? -1 : 1;
+        }
+        return 0;
+    });
+    return arr;
+}
+
+alert(JSON.stringify(sort(arr, "age")))
